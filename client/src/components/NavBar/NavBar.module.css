@@ -1,0 +1,52 @@
+.header {
+    background: rgb(244, 244, 244);
+    width: 90px;
+    position: fixed;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+}
+.navMenu {
+    min-height: 100vh;
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    justify-content:space-between;
+}
+.links {
+    color: black;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 10px auto;
+    width: 75px;
+    height: 75px;
+    border-radius: 3px;
+}
+.links:hover {
+    background-color: #61957ca1;
+    transition: 0.5s;
+}
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+@media (max-width: 700px) {
+    .header {
+        flex-direction: column;
+    }
+    .links:hover{
+        background: none;
+        color: #61957ca1;
+    }
+}
+@media (max-width: 480px) {
+    .nav {
+        flex-direction:row;
+        justify-content: center;
+    }
+    .links:hover{
+        background: none;
+        color: #61957ca1;
+    }
+}
