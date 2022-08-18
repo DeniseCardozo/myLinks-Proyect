@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { Box } = require("../db.js")
+const { Box, Link } = require("../db.js")
 const router = Router();
 
 router.post("/:id_user", async (req, res) => {
@@ -14,6 +14,26 @@ router.post("/:id_user", async (req, res) => {
     } catch (error) {
         console.log(error)
     }
+})
+
+router.get("/:id_user", async (req, res) => {
+    try {
+        const {id_user} = req.params;
+        const allBoxes = await Box.findAll({
+            where: {
+                id_user: id_user
+            },
+            include: [
+                Link
+            ]
+        })
+        allBoxes.length > 0 
+        ? res.status(200).send(allBoxes)
+        : res.status(404).send("No Boxes found")
+    } catch (error) {
+        console.log(error)
+    }
+
 })
 
 router.delete("/:id_box", async (req, res) => {
