@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Link.module.css"
 import deleteimg from "../../image/delete.png";
 import edit from "../../image/edit.png";
 
 
 export default function Link({link}) {
+    const [showMiniForm, setShowMiniForm] = useState(false)
+
+    function handleClick() {
+        setShowMiniForm(!showMiniForm);
+    }
+
     return (
         <React.Fragment>
             <div className={styles.principalBox}>
@@ -15,6 +21,7 @@ export default function Link({link}) {
                         src={edit}
                         alt="buttonedit"
                         className={styles.button} type="button" 
+                        onClick={handleClick}
                     />
                     <img
                         src={deleteimg}
@@ -23,20 +30,23 @@ export default function Link({link}) {
                     />
                 </div>
                 </div>
-                
+
                 {/* este div tiene que aparece luego de que le hagan clic al boton de edit */}
-                <div className={styles.editBox}>
-                <input
-                    type="text"
-                    value={link.name}
-                    name="name"
-                />
-                <input
-                    type="text"
-                    value={link.url_link}
-                    name="url_link"
-                />
-                </div>
+                { showMiniForm &&
+                    <div className={styles.editBox}>
+                    <input
+                        type="text"
+                        value={link.name}
+                        name="name"
+                    />
+                    <input
+                        type="text"
+                        value={link.url_link}
+                        name="url_link"
+                    />
+                    </div>
+                }
+             
                
 
             </div>

@@ -48,7 +48,9 @@
     margin-left: 5px;
     border-radius: 50%;
     background-color: transparent;    
-    filter:  opacity(0.6) drop-shadow(0 0 0 rgb(43, 43, 44))
+    filter:  opacity(0.6) drop-shadow(0 0 0 rgb(43, 43, 44));
+    cursor: pointer;
+
 }
 
 .button:hover {
