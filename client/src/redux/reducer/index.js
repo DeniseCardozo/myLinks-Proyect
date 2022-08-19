@@ -1,4 +1,4 @@
-import { GET_USER, GET_ALL_BOXES } from "../actions";
+import { GET_USER, GET_ALL_BOXES, POST_NEW_BOX } from "../actions";
 
 const initialState = {
     user: {},
@@ -17,6 +17,11 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 boxes: action.payload,
+            }
+        case POST_NEW_BOX:
+            return {
+                ...state,
+                boxes: [...state.boxes, action.payload]
             }
         default:
             return { ...state };
