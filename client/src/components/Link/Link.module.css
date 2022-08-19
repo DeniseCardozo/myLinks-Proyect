@@ -1,0 +1,60 @@
+.principalBox {
+    margin: 0 auto 10px auto;
+    color: black;
+    border-radius: 5px;
+    border: solid 0.5px rgba(255, 255, 255, 0.201);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.principalBox:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 15px 10px rgba(0, 0, 0, 0.1);
+}
+
+.secundaryBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px 5px 0 0;
+
+}
+.nameTitle {
+    margin: 0;
+    
+}
+.buttonBox{
+    opacity: 0;
+    transition: .5s;
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    position:absolute;
+    margin: 0 auto;
+
+}
+.buttonBox:hover {
+    opacity: 1;
+    
+}
+
+.button {
+    width: 1.7rem;
+    height: 1.7rem;
+    margin-left: 5px;
+    border-radius: 50%;
+    background-color: transparent;    
+    filter:  opacity(0.6) drop-shadow(0 0 0 rgb(43, 43, 44))
+}
+
+.button:hover {
+    background-color: rgb(151, 151, 151);
+    transition: 0.5s;
+    box-shadow: 0 2px 50px 10px rgba(0, 0, 0, 0.1);
+    border: solid 0.5px white;
+
+}

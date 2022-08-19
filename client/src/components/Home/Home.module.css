@@ -1,13 +1,21 @@
 .containerBox {
-    min-height: 100vh;
     width: 100%;
+    min-height: 100vh;
+    background: url("../../image/imagePrueba.jpg") no-repeat center center;
+    background-size:cover;
     display: flex;
     flex-wrap: wrap;
     flex-direction:row;
 }
 .principalBox {
     width: 100%;
-    background-color:rgb(220, 209, 209) ;
     margin: 0 auto 0 90px
-
 }
+.allCardsBox {
+    max-width: 90%;
+    margin: 0 auto;
+    columns: 3;
+    column-gap: 20px;
+    break-inside: avoid;
+}
+
