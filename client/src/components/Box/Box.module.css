@@ -24,7 +24,6 @@
 }
 .nameTitle {
     margin-left: 20px;
-    
 }
 .buttonBox{
     opacity: 0;
@@ -37,6 +36,8 @@
     align-items: center;
 }
 .subButtonBox {
+    display: flex;
+    align-items: center;
     margin-right: 20px;
 }
 .buttonBox:hover {
@@ -48,12 +49,13 @@
     margin-left: 5px;
     border-radius: 50%;
     background-color: transparent;    
-    filter:  opacity(0.6) drop-shadow(0 0 0 rgb(43, 43, 44));
+    filter:  invert(1);
     cursor: pointer;
 }
 .button:hover {
     background-color: rgb(151, 151, 151);
     transition: 0.5s;
-    box-shadow: 0 2px 50px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 50px 10px rgba(96, 96, 96, 0.1);
     border: solid 0.5px white;
 }
+
