@@ -4,32 +4,52 @@ import deleteimg from "../../image/delete.png";
 import edit from "../../image/edit.png";
 import ok from "../../image/ok.png";
 import cancel from "../../image/cancel.png";
+import { putLink } from "../../redux/actions";
+import { useDispatch } from "react-redux";
 
 
-export default function Link({link}) {
-    const [showMiniForm, setShowMiniForm] = useState(false)
+export default function Link({link, setUpdateList, updateList}) {
+    const dispatch = useDispatch();
+    const [showMiniForm, setShowMiniForm] = useState(false);
+    const [input, setInput] = useState({
+        name: link.name,
+        url_link: link.url_link
+    });
 
     function handleClick() {
         setShowMiniForm(!showMiniForm);
     }
+    function handleChange(e) {
+        e.preventDefault();
+        setInput(({...input, [e.target.name]: e.target.value}));
+    }
+    function handleSubmit(e) {
+        e.preventDefault();
+        dispatch(putLink(link.id_link, input))
+        setShowMiniForm(!showMiniForm)
+        setUpdateList(!updateList)
+
+    } 
 
     return (
         <React.Fragment>
             <div className={styles.principalBox}>
                 { showMiniForm ?
-                        <form className={styles.formBox}>
+                        <form className={styles.formBox} onSubmit={(e) => handleSubmit(e)}>
                             <div className={styles.inputsBox}>
                                 <input
                                     type="text"
-                                    value={link.name}
+                                    value={input.name}
                                     name="name"
-                                    className={styles.input} 
+                                    className={styles.input}
+                                    onChange={(e) => handleChange(e)} 
                                 />
                                 <input
                                     type="text"
-                                    value={link.url_link}
+                                    value={input.url_link}
                                     name="url_link"
                                     className={styles.input}
+                                    onChange={(e) => handleChange(e)}
                                 />
                             </div>
                             <div className={styles.buttonBox2}>
@@ -50,10 +70,9 @@ export default function Link({link}) {
                             </div>
                         </form> :
                     <div className={styles.secundaryBox}>
-                        <h5 className={styles.nameTitle}>{link.name}</h5>
+                        {/* <h5 className={styles.nameTitle}>{link.name}</h5> */}
                         <div className={styles.buttonBox}>
                             <div className={styles.subButtonBox}>
-
                                 <img
                                     src={edit}
                                     alt="buttonedit"
@@ -67,6 +86,7 @@ export default function Link({link}) {
                                 />
                             </div>
                         </div>
+                        <a href={`${link.url_link}`} target="_blank" className={styles.nameTitle}>{link.name}</a>
                         </div>
                 }
 
