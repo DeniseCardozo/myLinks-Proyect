@@ -3,6 +3,7 @@ import axios from "axios";
 export const GET_USER = "GET_USER";
 export const GET_ALL_BOXES = "GET_ALL_BOXES";
 export const POST_NEW_BOX = "POST_NEW_BOX";
+export const PUT_NAME_BOX = "PUT_NAME_BOX";
 
 const urlUser = "http://localhost:3001/user";
 const urlBox = "http://localhost:3001/box";
@@ -46,6 +47,19 @@ export const postNewBox = (id_User, inputValue) => async (dispatch) => {
                 payload: response.data
             })
         )
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+export const putNameBox = (id_box, inputValue) => async () => {
+    try {
+        const input = {
+            name: inputValue.name
+        }
+
+        return await axios
+        .put(`${urlBox}/${id_box}`, input)
     } catch (error) {
         console.log(error)
     }

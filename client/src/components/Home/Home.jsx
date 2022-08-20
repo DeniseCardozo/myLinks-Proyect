@@ -9,17 +9,19 @@ export default function Home(props) {
     const params = Number(props.match.params.id_user);
     const dispatch = useDispatch();
 
+    const [updateList, setUpdateList] = useState(false);
+    const [showMiniForm, setShowMiniForm] = useState(false)
+    const [input, setInput] = useState({name:""})
+
     useEffect(() => {
         dispatch(getUser(params));
         dispatch(getAllBoxes(params));
-    }, [dispatch, params])
+    }, [dispatch, params, updateList])
 
     let user = useSelector((state) => state.user)
     let boxes = useSelector((state) => state.boxes)
 
-    const [showMiniForm, setShowMiniForm] = useState(false)
-    const [input, setInput] = useState({name:""})
-
+   
     function handleClick() {
         setShowMiniForm(!showMiniForm);
     }
@@ -28,7 +30,6 @@ export default function Home(props) {
         e.preventDefault();
         setInput(({...input, [e.target.name]: e.target.value}));
     }
-    console.log(input)
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -73,7 +74,7 @@ export default function Home(props) {
                     </div>
                     <div className={styles.allCardsBox}>
                         {boxes &&
-                            boxes.map((box) => <div><Box key={box.id_box} box={box}/></div>)
+                            boxes.map((box) => <div><Box key={box.id_box} box={box} setUpdateList={setUpdateList} updateList={updateList} /></div>)
                         }
                     </div>
                 </div>
