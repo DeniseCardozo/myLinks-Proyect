@@ -5,8 +5,8 @@
     border: solid 0.5px rgba(255, 255, 255, 0.201);
     height: auto;
     display: flex;
-    flex-direction: column;
     width: 90%;
+    align-items: center;
 }
 
 .principalBox:hover {
@@ -41,7 +41,7 @@
     opacity: 1;
     
 }
-.subButtonBox {
+.subButtonBox, .buttonBox2 {
     display: flex;
     margin-right: 15px;
     align-items: center;
@@ -55,7 +55,6 @@
     background-color: transparent;    
     filter:  opacity(0.6) drop-shadow(0 0 0 rgb(43, 43, 44));
     cursor: pointer;
-
 }
 
 .button:hover {
@@ -65,7 +64,38 @@
     border: solid 0.5px white;
 
 }
-.editBox {
-    height: 50px;
-    margin: 10px auto;
+.buttonDefault {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.formBox {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.inputsBox {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 65%;
+    margin: 5px 0 0 15px;
+}
+.input {
+    background-color: rgba(255, 255, 255, 0.242);
+    color: black;
+    border-radius: 5px;
+    border: solid 0.5px rgba(255, 255, 255, 0.201);
+    height: 1.3rem;
+    margin: 0 0 5px 0;
+    width: 100%;
+}
+.input:hover {
+    background-color: rgba(255, 255, 255, 0.516);
+    box-shadow: 0 2px 15px 10px rgba(191, 191, 191, 0.1);
 }
