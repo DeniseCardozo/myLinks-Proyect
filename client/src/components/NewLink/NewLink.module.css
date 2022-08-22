@@ -1,0 +1,75 @@
+.principalBox {
+    margin: 0 auto 5px auto;
+    color: black;
+    border-radius: 5px;
+    border: solid 0.5px rgba(255, 255, 255, 0.201);
+    height: auto;
+    display: flex;
+    width: 90%;
+    align-items: center;
+}
+.principalBox:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 15px 10px rgba(0, 0, 0, 0.1);
+}
+
+.buttonBox2 {
+    display: flex;
+    margin-right: 15px;
+    align-items: center;
+
+}
+.button {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 5px;
+    border-radius: 50%;
+    background-color: transparent;    
+    filter:  opacity(0.6) drop-shadow(0 0 0 rgb(43, 43, 44));
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgb(151, 151, 151);
+    transition: 0.5s;
+    box-shadow: 0 2px 50px 10px rgba(0, 0, 0, 0.1);
+    border: solid 0.5px white;
+
+}
+.buttonDefault {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.formBox {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.inputsBox {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 65%;
+    margin: 5px 0 0 15px;
+}
+
+.input {
+    background-color: rgba(255, 255, 255, 0.242);
+    color: black;
+    border-radius: 5px;
+    border: solid 0.5px rgba(255, 255, 255, 0.201);
+    height: 1.3rem;
+    margin: 0 0 5px 0;
+    width: 100%;
+    padding-left: 10px;
+}
+.input:hover {
+    background-color: rgba(255, 255, 255, 0.516);
+    box-shadow: 0 2px 15px 10px rgba(191, 191, 191, 0.1);
+}

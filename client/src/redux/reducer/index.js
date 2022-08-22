@@ -3,7 +3,6 @@ import { GET_USER, GET_ALL_BOXES, POST_NEW_BOX } from "../actions";
 const initialState = {
     user: {},
     boxes: [],
- //   links: []
 };
 
 const rootReducer = (state = initialState, action) => {

@@ -9,10 +9,12 @@ import cancel from "../../image/cancel.png";
 import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
 import { deleteBox, deleteLink, putNameBox } from "../../redux/actions";
+import NewLink from "../NewLink/NewLink";
 
 export default function Box({box, setUpdateList, updateList}) {
     const dispatch = useDispatch();
     const [showMiniForm, setShowMiniForm] = useState(false)
+    const [showMiniFormLink, setShowMiniFormLink] = useState(false)
     const [input, setInput] = useState({ name: box.name })
 
     function handleClick() {
@@ -54,54 +56,63 @@ export default function Box({box, setUpdateList, updateList}) {
         })
       }
 
+      function handleAddLink() {
+        setShowMiniFormLink(!showMiniFormLink);
+    }
+
     return (
         <React.Fragment>
             <div className={styles.principalBox}>
-                    {
-                        showMiniForm ? 
-                        <form onSubmit={(e) => handleSubmit(e)} className={styles.formBox}>
-                            <input type="text" value={input.name} name="name" className={styles.inputName} onChange={(e) => handleChange(e)} />
-                            <div className={styles.buttonBox2}>
-                                <button className={styles.buttonDefault} type="submit">                                
-                                <img
-                                    src={ok}
-                                    alt="buttonOk"
-                                    className={styles.button} type="button" 
-                                />
-                                </button>
+                { showMiniForm ? 
+                    <form onSubmit={(e) => handleSubmit(e)} className={styles.formBox}>
+                        <input type="text" value={input.name} name="name" className={styles.inputName} onChange={(e) => handleChange(e)} />
+                        <div className={styles.buttonBox2}>
+                            <button className={styles.buttonDefault} type="submit">                                
+                            <img
+                                src={ok}
+                                alt="buttonOk"
+                                className={styles.button} type="button" 
+                            />
+                            </button>
 
+                            <img
+                                src={cancel}
+                                alt="buttonCancel"
+                                className={styles.button} type="button"  onClick={(e) => handleClick(e)}
+                            />
+                        </div>
+                    </form> :
+                    <div className={styles.nameBox}>                           
+                        <h1 className={styles.nameTitle}>{box.name}</h1>
+                        <div className={styles.buttonBox}>
+                            <div className={styles.subButtonBox}>
                                 <img
-                                    src={cancel}
-                                    alt="buttonCancel"
-                                    className={styles.button} type="button"  onClick={(e) => handleClick(e)}
+                                    src={add}
+                                    alt="buttonadd"
+                                    className={styles.button} type="button" 
+                                    onClick={(e)=>handleAddLink(e)}
+
                                 />
-                            </div>
-                        </form> :
-                            <div className={styles.nameBox}>                           
-                                <h1 className={styles.nameTitle}>{box.name}</h1>
-                                <div className={styles.buttonBox}>
-                                    <div className={styles.subButtonBox}>
-                                        <img
-                                            src={add}
-                                            alt="buttonadd"
-                                            className={styles.button} type="button" 
-                                        />
-                                        <img
-                                            src={edit}
-                                            alt="buttonedit"
-                                            className={styles.button} type="button" 
-                                            onClick={handleClick}
-                                        />
-                                        <img
-                                            src={deleteimg}
-                                            alt="buttondelete"
-                                            className={styles.button} type="button" 
-                                            onClick={(e)=>handleDelete(e)}
-                                        />
-                                    </div>  
-                                </div>
-                            </div>
-                    }
+                                <img
+                                    src={edit}
+                                    alt="buttonedit"
+                                    className={styles.button} type="button" 
+                                    onClick={handleClick}
+                                />
+                                <img
+                                    src={deleteimg}
+                                    alt="buttondelete"
+                                    className={styles.button} type="button" 
+                                    onClick={(e)=>handleDelete(e)}
+                                />
+                            </div>  
+                        </div>
+                    </div>
+                }
+                {
+                    showMiniFormLink &&
+                    <NewLink box={box} setShowMiniFormLink={setShowMiniFormLink} showMiniFormLink={showMiniFormLink} />
+                }
                 {
                     box.links && 
                     box.links.map((link) => 

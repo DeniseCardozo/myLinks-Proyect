@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Link.module.css"
 import deleteimg from "../../image/delete.png";
 import edit from "../../image/edit.png";
 import ok from "../../image/ok.png";
 import cancel from "../../image/cancel.png";
-import { deleteLink, putLink } from "../../redux/actions";
+import { deleteLink, getAllBoxes, putLink } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 
@@ -16,8 +16,9 @@ export default function Link({link, setUpdateList, updateList}) {
         name: link.name,
         url_link: link.url_link
     });
+    console.log(link)
 
-    function handleClick() {
+     function handleClick() {
         setShowMiniFormEdit(!showMiniFormEdit);
     }
     function handleChange(e) {
@@ -45,7 +46,7 @@ export default function Link({link, setUpdateList, updateList}) {
             dispatch(deleteLink(link.id_link))
             Swal.fire(
               'Deleted!',
-              'Your file has been deleted.',
+              `${link.name} has been deleted successfully.`,
               'success'
             )
             setUpdateList(!updateList)
@@ -56,8 +57,6 @@ export default function Link({link, setUpdateList, updateList}) {
     return (
         <React.Fragment>
             <div className={styles.principalBox}>
-
-
                 { showMiniFormEdit ?
                         <form className={styles.formBox} onSubmit={(e) => handleSubmit(e)}>
                             <div className={styles.inputsBox}>
