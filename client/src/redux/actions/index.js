@@ -77,3 +77,12 @@ export const putLink = (id_link, inputValue) => async () => {
         console.log(error)
     }
 };
+
+export const deleteLink = (id_link) => async () => {
+    try {
+        return await axios
+        .delete(`${urlLink}/${id_link}`)
+    } catch (error) {
+        console.log(error)
+    }
+};
