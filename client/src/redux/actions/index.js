@@ -64,6 +64,15 @@ export const putNameBox = (id_box, inputValue) => async () => {
     }
 };
 
+export const deleteBox = (id_box) => async () => {
+    try {
+        return await axios
+        .delete(`${urlBox}/${id_box}`)
+    } catch (error) {
+        console.log(error)
+    }
+};
+
 export const putLink = (id_link, inputValue) => async () => {
     try {
         const input = {

@@ -6,9 +6,9 @@ import edit from "../../image/edit.png";
 import add from "../../image/add.png";
 import ok from "../../image/ok.png";
 import cancel from "../../image/cancel.png";
-
+import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
-import { putNameBox } from "../../redux/actions";
+import { deleteBox, deleteLink, putNameBox } from "../../redux/actions";
 
 export default function Box({box, setUpdateList, updateList}) {
     const dispatch = useDispatch();
@@ -17,7 +17,6 @@ export default function Box({box, setUpdateList, updateList}) {
 
     function handleClick() {
         setShowMiniForm(!showMiniForm);
-        console.log(showMiniForm);
     }
 
     function handleChange(e) {
@@ -31,7 +30,29 @@ export default function Box({box, setUpdateList, updateList}) {
         setShowMiniForm(!showMiniForm);
         setUpdateList(!updateList)
     }
-
+    function handleDelete(e) { 
+        e.preventDefault()
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#A7D129',
+          cancelButtonColor: 'rgb(43, 43, 44);',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            dispatch(deleteBox(box.id_box))
+            box.links.map((link) => dispatch(deleteLink(link.id_link)))
+            Swal.fire(
+              'Deleted!',
+              `${box.name} has been deleted successfully.`,
+              'success'
+            )
+            setUpdateList(!updateList)
+          }
+        })
+      }
 
     return (
         <React.Fragment>
@@ -41,7 +62,8 @@ export default function Box({box, setUpdateList, updateList}) {
                         <form onSubmit={(e) => handleSubmit(e)} className={styles.formBox}>
                             <input type="text" value={input.name} name="name" className={styles.inputName} onChange={(e) => handleChange(e)} />
                             <div className={styles.buttonBox2}>
-                                <button className={styles.buttonDefault} type="submit">                                <img
+                                <button className={styles.buttonDefault} type="submit">                                
+                                <img
                                     src={ok}
                                     alt="buttonOk"
                                     className={styles.button} type="button" 
@@ -74,6 +96,7 @@ export default function Box({box, setUpdateList, updateList}) {
                                             src={deleteimg}
                                             alt="buttondelete"
                                             className={styles.button} type="button" 
+                                            onClick={(e)=>handleDelete(e)}
                                         />
                                     </div>  
                                 </div>
@@ -82,7 +105,7 @@ export default function Box({box, setUpdateList, updateList}) {
                 {
                     box.links && 
                     box.links.map((link) => 
-                    <Link key={link.id_link} link={link} />)
+                    <Link key={link.id_link} link={link} setUpdateList={setUpdateList} updateList={updateList} />)
                 }
             </div>
         </React.Fragment>
