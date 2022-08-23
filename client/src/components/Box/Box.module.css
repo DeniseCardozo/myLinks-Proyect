@@ -25,16 +25,25 @@
 }
 .nameTitle {
     margin-left: 20px;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-family: 'Square Peg', cursive;
+    font-weight: lighter;
 }
 .inputName {
     background-color: rgba(255, 255, 255, 0.242);
-    color: black;
+    color: rgb(67, 65, 65);
     border-radius: 5px;
     border: solid 0.5px rgba(255, 255, 255, 0.201);
     height: 1.7rem;
     width: 60%;
     margin-left: 20px;
+    padding-left: 10px;
+    font-family: 'Square Peg', cursive;
+    font-size: 1.8rem;
+    font-weight: lighter;
+
+
+
 }
 .inputName:hover {
     background-color: rgba(255, 255, 255, 0.516);

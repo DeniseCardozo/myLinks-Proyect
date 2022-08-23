@@ -25,6 +25,11 @@
 .nameTitle {
     margin-left: 15px;
     position: relative;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 0.9rem;
+    font-weight: bolder;
+    color: #1f1f1f;
+    text-decoration: none
 }
 .buttonBox{
     opacity: 0;
@@ -86,24 +91,20 @@
     width: 65%;
     margin: 5px 0 0 15px;
 }
-
-a {
-    color: rgb(26, 25, 25);
-    font-weight: bold;
-    font-size: 0.8rem;
-}
 a:hover {
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 .input {
     background-color: rgba(255, 255, 255, 0.242);
-    color: black;
+    color: rgb(67, 65, 65);
     border-radius: 5px;
     border: solid 0.5px rgba(255, 255, 255, 0.201);
     height: 1.3rem;
     margin: 0 0 5px 0;
     width: 100%;
     padding-left: 10px;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 0.7rem;
 }
 .input:hover {
     background-color: rgba(255, 255, 255, 0.516);

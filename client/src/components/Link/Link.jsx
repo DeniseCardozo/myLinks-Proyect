@@ -4,7 +4,7 @@ import deleteimg from "../../image/delete.png";
 import edit from "../../image/edit.png";
 import ok from "../../image/ok.png";
 import cancel from "../../image/cancel.png";
-import { deleteLink, getAllBoxes, putLink } from "../../redux/actions";
+import { deleteLink, putLink } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 

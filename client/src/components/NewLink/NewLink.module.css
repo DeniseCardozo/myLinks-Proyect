@@ -1,6 +1,5 @@
 .principalBox {
     margin: 0 auto 5px auto;
-    color: black;
     border-radius: 5px;
     border: solid 0.5px rgba(255, 255, 255, 0.201);
     height: auto;
@@ -61,13 +60,15 @@
 
 .input {
     background-color: rgba(255, 255, 255, 0.242);
-    color: black;
+    color: rgb(60, 59, 59);
     border-radius: 5px;
     border: solid 0.5px rgba(255, 255, 255, 0.201);
     height: 1.3rem;
     margin: 0 0 5px 0;
     width: 100%;
     padding-left: 10px;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 0.7rem;
 }
 .input:hover {
     background-color: rgba(255, 255, 255, 0.516);

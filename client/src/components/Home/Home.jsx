@@ -91,8 +91,8 @@ export default function Home(props) {
                             }
                         </div>
                         <div className={styles.greetingBox}>
-                            <h1>Good morning {user.name}!</h1>
-                            <h1>How are you?</h1>
+                            <h1 className={styles.greeting}>Good morning {user.name}!</h1>
+                            <h1 className={styles.greeting}>How are you?</h1>
                         </div>
                     </div>
                     
