@@ -9,21 +9,90 @@
 }
 .principalBox {
     width: 100%;
-    margin: 0 auto 0 90px
+    margin: 0 auto 0 70px;
+}
+.secondaryBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .createNewBox {
+    width: 400px;
+    height: 70px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    background-color:  rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: solid 0.5px rgba(255, 255, 255, 0.5);
+    margin: 30px;
+    border-radius: 50px 8px 8px 50px;
+}
+.marginButton {
+    margin: 40px 30px 30px 30px;
 }
 .newBoxButton {
+    width: 3rem;
+    height: 3rem;
+    margin-left: 10px;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 2.3rem;
-    font-weight: bold;
-    border: solid 1px rgb(58, 58, 58);
+    background-color: transparent;    
+    filter:  invert(1);
     cursor: pointer;
+}
+.newBoxButton:hover {
+    background-color: rgb(151, 151, 151);
+    transition: 0.5s;
+    box-shadow: 0 2px 50px 10px rgba(96, 96, 96, 0.1);
+    border: solid 0.5px white;
+}
+.formPost {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.inputName {
+    background-color: rgba(255, 255, 255, 0.242);
+    color: black;
+    border-radius: 5px;
+    border: solid 0.5px rgba(255, 255, 255, 0.201);
+    height: 1.7rem;
+    width: 240px;
+    margin: 0 auto;
+}
+.inputName:hover {
+    background-color: rgba(255, 255, 255, 0.516);
+    box-shadow: 0 2px 15px 10px rgba(191, 191, 191, 0.1);
+}
+.buttonBox2 {
+    display: flex;
+    margin-right: 10px;
+    align-items: center;
+}
+.button {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 5px;
+    border-radius: 50%;
+    background-color: transparent;    
+    filter:  invert(1);
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgb(151, 151, 151);
+    transition: 0.5s;
+    box-shadow: 0 2px 50px 10px rgba(0, 0, 0, 0.1);
+    border: solid 0.5px white;
+
+}
+.buttonDefault {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
 }
 .allCardsBox {
     max-width: 90%;

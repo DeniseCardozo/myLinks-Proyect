@@ -4,6 +4,10 @@ import Box from "../Box/Box";
 import styles from "./Home.module.css"
 import { getUser, getAllBoxes, postNewBox } from "../../redux/actions";
 import Swal from 'sweetalert2'
+import add from "../../image/add.png";
+import ok from "../../image/ok.png";
+import cancel from "../../image/cancel.png";
+
 
 export default function Home(props) {
     const params = Number(props.match.params.id_user);
@@ -55,23 +59,43 @@ export default function Home(props) {
         <React.Fragment>
             <div className={styles.containerBox}>
                 <div className={styles.principalBox}>
-                    <div className={styles.greetingBox}>
-                        <h1>Good morning {user.name}!</h1>
-                        <h1>How are you?</h1>
-                        <div className={styles.createNewBox}>
-                            <button onClick={(e) => handleClick(e)} className={styles.newBoxButton}>+</button>
+                    <div className={styles.secondaryBox}>
+                        <div className={ showMiniForm ? styles.createNewBox : styles.marginButton }>
+                            <img
+                                src={add}
+                                alt="buttonadd"
+                                className={styles.newBoxButton} type="button" 
+                                onClick={(e)=> handleClick(e)}
+                            />
                             {
                                 showMiniForm && 
-                                <div>
-                                <form onSubmit={(e) => handleSubmit(e)}>
-                                    <input type="text" value={input.name} name="name" onChange={(e) => handleChange(e)} />
-                                    <button type="submit">OK</button>
+                                <form onSubmit={(e) => handleSubmit(e)} className={styles.formPost}>
+                                    <input type="text" value={input.name} name="name" placeholder="Write a name..." onChange={(e) => handleChange(e)} className={styles.inputName} />
+                                    <div className={styles.buttonBox2}>
+
+                                        <button className={styles.buttonDefault} type="submit">                                
+                                            <img
+                                                src={ok}
+                                                alt="buttonOk"
+                                                className={styles.button} type="button" 
+                                            />
+                                        </button>
+
+                                        <img
+                                            src={cancel}
+                                            alt="buttonCancel"
+                                            className={styles.button} type="button"  onClick={(e) => handleClick(e)}
+                                        /> 
+                                    </div>                               
                                 </form>
-                                </div>
                             }
                         </div>
-                        
+                        <div className={styles.greetingBox}>
+                            <h1>Good morning {user.name}!</h1>
+                            <h1>How are you?</h1>
+                        </div>
                     </div>
+                    
                     <div className={styles.allCardsBox}>
                         {boxes &&
                             boxes.map((box) => <div><Box key={box.id_box} box={box} setUpdateList={setUpdateList} updateList={updateList} /></div>)
