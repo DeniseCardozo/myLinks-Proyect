@@ -1,0 +1,60 @@
+.containerBox {
+    width: 100%;
+    min-height: 100vh;
+    background: url("../../image/background3.jpg") no-repeat center center;
+    background-size:cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.principalBox {
+    display: flex;
+    flex-direction:column;
+    width: 400px;
+    padding: 30px;
+    background-color:  rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: solid 0.5px rgba(255, 255, 255, 0.5); 
+    border-radius: 8px;
+}
+.secondaryBox {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.title, .subtitle {
+    margin: 0;
+    font-family: 'Julius Sans One', sans-serif;
+    color: whitesmoke;
+}
+.input {
+    background-color: rgba(255, 255, 255, 0.242);
+    color: rgb(33, 30, 30);
+    border-radius: 5px;
+    border: solid 0.5px rgba(255, 255, 255, 0.201);
+    height: 1.7rem;
+    margin: 5px 0 15px 0;
+    padding-left: 5px;
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+}
+.button {
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: bolder;
+    height: 35px;
+    width: 90px;
+    margin: 0;
+    background-color:  rgb(255, 255, 255);
+    backdrop-filter: blur(5px);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: rgb(151, 151, 151);
+    transition: 0.5s;
+    box-shadow: 0 2px 50px 10px rgba(96, 96, 96, 0.1);
+    border: solid 0.5px white;
+    color: aliceblue;
+}
