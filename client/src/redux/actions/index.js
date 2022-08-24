@@ -3,7 +3,6 @@ import axios from "axios";
 export const GET_USER = "GET_USER";
 export const GET_ALL_BOXES = "GET_ALL_BOXES";
 export const POST_NEW_BOX = "POST_NEW_BOX";
-export const POST_NEW_LINK = "POST_NEW_LINK";
 
 const urlUser = "http://localhost:3001/user";
 const urlBox = "http://localhost:3001/box";
