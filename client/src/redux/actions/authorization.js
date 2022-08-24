@@ -52,4 +52,11 @@ export const postLogin = (inputValue) => async (dispatch) => {
     } catch (error) {
         console.log(error)
     }
-}
+};
+
+export const logoutUser = () => {
+    deleteToken();
+    return {
+        type: NOT_AUTHENTICATED
+    }
+};
