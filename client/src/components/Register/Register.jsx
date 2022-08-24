@@ -39,7 +39,7 @@ export default function Register() {
             confirmButtonText: 'Greate'
           }).then((result) => {
             if (result.isConfirmed) {
-              history.push("/home/:id_user");
+              history.push("/login");
             }
           })
     }

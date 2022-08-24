@@ -56,10 +56,7 @@ router.post("/login", async (req, res, next) => {
 
         const token = jwt.sign({ user_email: user.e_mail }, process.env.JWT_SECRET)
         
-        return res.status(200).json({
-            token: token,
-            user: { ...user.dataValues }
-        })
+        return res.status(200).json({token: token, user: {...user.dataValues }})
 
     } catch (error) {
         return res.status(404).send("Error,please try again!");

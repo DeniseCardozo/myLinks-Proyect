@@ -14,17 +14,18 @@ export default function Home(props) {
     const params = Number(props.match.params.id_user);
     const dispatch = useDispatch();
 
+    let user = useSelector((state) => state.auth.currentUser)
+    let boxes = useSelector((state) => state.rootReducer.boxes) //cambiar ese estado box de rootreducer a auth
+    console.log(user)
+
     const [updateList, setUpdateList] = useState(false);
     const [showMiniForm, setShowMiniForm] = useState(false)
     const [input, setInput] = useState({name:""})
 
     useEffect(() => {
         dispatch(getUser(params));
-        dispatch(getAllBoxes(params));
-    }, [dispatch, params, updateList])
-
-    let user = useSelector((state) => state.user)
-    let boxes = useSelector((state) => state.boxes)
+        dispatch(getAllBoxes(user.id_user));
+    }, [dispatch, params, updateList, user.id_user])
 
    
     function handleClick() {
