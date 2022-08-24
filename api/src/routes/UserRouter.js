@@ -26,27 +26,4 @@ router.get("/:id_user", async (req, res) => {
     }
 })
 
-router.post("/", async (req, res, next) => {
-    try {
-        const {name, e_mail, password} = req.body;
-        let findUser = await User.findAll({
-            where: {
-                e_mail: e_mail
-            }
-        })
-        if(findUser.length > 0){
-            res.status(403).send("User could not be created, email already in use");
-        } else {
-            await User.create({
-                name,
-                e_mail,
-                password
-            });
-            res.send("Created!");
-        }
-    } catch (error) {
-        console.log(error)
-    }
-})
-
 module.exports = router;
