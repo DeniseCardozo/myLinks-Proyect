@@ -7,6 +7,7 @@ import Swal from 'sweetalert2'
 import add from "../../image/add.png";
 import ok from "../../image/ok.png";
 import cancel from "../../image/cancel.png";
+import NavBar from "../NavBar/NavBar.jsx"
 
 
 export default function Home(props) {
@@ -57,6 +58,7 @@ export default function Home(props) {
 
     return (
         <React.Fragment>
+            <NavBar />
             <div className={styles.containerBox}>
                 <div className={styles.principalBox}>
                     <div className={styles.secondaryBox}>
